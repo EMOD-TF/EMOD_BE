@@ -1,0 +1,33 @@
+spring:
+
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://emoddatabase.ch4qsggc0nhs.ap-northeast-2.rds.amazonaws.com/emod_db
+    username: emoddatabase
+    password: emoddatabase
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: false # hibernate 로그 남길지
+
+  data:
+    redis:
+      host: redis
+      port: 6379
+
+jwt:
+  secret: aGFuZXVtLWZvb2Rnby1qd3Qtc2VjcmV0LWtleQo=
+  access-token-validity-seconds: 8640000 # 초 단위 (약 100일)
+
+logging:
+  level:
+    org:
+      hibernate.sql: debug

@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: prod
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+    import: application-prod.yml, application-ai.yml
+
+
+server:
+  port: 8080
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+    import: application-local.yml, application-ai.yml
+
+
+server:
+  port: 8080
