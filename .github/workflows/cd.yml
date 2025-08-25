@@ -51,6 +51,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
+            echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" | sudo tee /home/ec2-user/.env
             sudo docker stop $(sudo docker ps -a -q) 
             sudo docker rm -f $(sudo docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_IMG_SPRING }}
