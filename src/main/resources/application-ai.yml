@@ -1,7 +1,7 @@
 openai:
   model: gpt-3.5-turbo
   api:
-    key: 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
+    key: ${OPENAI_API_KEY}
     url: https://api.openai.com/v1/chat/completions
   options:
     temperature: 0.2
