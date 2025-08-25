@@ -23,6 +23,9 @@ jobs:
       - name: 스프링부트 애플리케이션 빌드
         run: ./gradlew bootJar
 
+      - name: Set environment
+        run: echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+
       - name: 도커 이미지 빌드
         run: sudo docker build -t ${{ secrets.DOCKER_IMG_SPRING }} --platform linux/amd64 .
 
